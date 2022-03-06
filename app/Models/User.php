@@ -39,6 +39,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Event[] $events
+ * @property-read int|null $events_count
  */
 class User extends Authenticatable
 {
@@ -74,4 +76,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'role' => Role::class,
     ];
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }
