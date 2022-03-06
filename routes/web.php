@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome');
+
+Route::prefix('auth')->middleware('guest')->group(function () {
+    Route::controller(\App\Http\Controllers\Auth\RegisterController::class)->group(function () {
+        Route::get('register', 'show')->name('auth.register');
+        Route::post('register', 'register');
+    });
 });

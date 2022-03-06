@@ -12,7 +12,7 @@
                 @else
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a href="" class="button is-link">
+                            <a href="{{ route('auth.register') }}" class="button is-link">
                                 Sign Up
                             </a>
                             <a href="" class="button is-dark">
