@@ -15,7 +15,7 @@
                             <a href="{{ route('auth.register') }}" class="button is-link">
                                 Sign Up
                             </a>
-                            <a href="" class="button is-dark">
+                            <a href="{{ route('auth.login') }}" class="button is-dark">
                                 Log In
                             </a>
                         </div>

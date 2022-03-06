@@ -20,4 +20,9 @@ Route::prefix('auth')->middleware('guest')->group(function () {
         Route::get('register', 'show')->name('auth.register');
         Route::post('register', 'register');
     });
+
+    Route::controller(\App\Http\Controllers\Auth\LoginController::class)->group(function () {
+        Route::get('login', 'show')->name('auth.login');
+        Route::post('login', 'login');
+    });
 });
