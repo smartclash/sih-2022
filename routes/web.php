@@ -26,3 +26,10 @@ Route::prefix('auth')->middleware('guest')->group(function () {
         Route::post('login', 'login');
     });
 });
+
+Route::controller(\App\Http\Controllers\HomeController::class)
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('home', 'home')->name('home');
+        Route::get('logout', 'logout')->name('logout');
+    });
