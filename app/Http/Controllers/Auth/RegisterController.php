@@ -32,6 +32,8 @@ class RegisterController extends Controller
 
         $user->saveOrFail();
 
-        return $user;
+        return redirect()->route('auth.login')->with([
+            'success' => 'Account registered. Please log in'
+        ]);
     }
 }

@@ -21,7 +21,7 @@ class LoginController extends Controller
         ]);
 
         if (\Auth::attempt($request->only(['email', 'password']), true)) {
-            return \Auth::user();
+            return redirect()->route('home');
         }
 
         return redirect()->route('auth.login')->with([
