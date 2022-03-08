@@ -9,6 +9,7 @@
             <div class="navbar-end">
                 @auth
                     <div class="buttons">
+                        <a href="{{ route('home') }}" class="button is-link">Dashboard</a>
                         <a href="{{ route('logout') }}" class="button is-dark">Logout</a>
                     </div>
                 @else
