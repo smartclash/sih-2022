@@ -8,7 +8,9 @@
         <div class="navbar-menu">
             <div class="navbar-end">
                 @auth
-                    {{-- Links for authenticated user --}}
+                    <div class="buttons">
+                        <a href="{{ route('logout') }}" class="button is-dark">Logout</a>
+                    </div>
                 @else
                     <div class="navbar-item">
                         <div class="buttons">
