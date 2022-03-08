@@ -39,10 +39,9 @@ class Event extends Model
     use HasFactory;
 
     protected $casts = [
-        'user_id' => 'integer',
-        'price' => 'double',
-        'starts_at' => 'timestamp',
-        'ends_at' => 'timestamp'
+        'unlimited' => 'boolean',
+        'starts_at' => 'datetime',
+        'ends_at' => 'datetime'
     ];
 
     public function user()
