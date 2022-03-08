@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function show(Event $event)
+    public function view(Event $event)
     {
         return $event;
     }
@@ -36,5 +36,11 @@ class EventController extends Controller
         $event->user()->associate(\Auth::user());
 
         $event->saveOrFail();
+
+        return redirect()
+            ->route('event.view')
+            ->with([
+                'success' => 'Event has been created successfully'
+            ]);
     }
 }

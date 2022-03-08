@@ -40,7 +40,7 @@ Route::controller(\App\Http\Controllers\EventController::class)
     ->prefix('event')
     ->group(function () {
         Route::get('create', 'showCreate')->name('event.create');
-        Route::get('{event}', 'show')->name('event.show');
+        Route::get('{event}', 'view')->name('event.view');
 
         Route::post('create', 'create');
     });
