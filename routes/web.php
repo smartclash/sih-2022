@@ -34,3 +34,13 @@ Route::controller(\App\Http\Controllers\HomeController::class)
         Route::get('logout', 'logout')->name('logout');
         Route::get('admin', 'admin')->name('home.admin');
     });
+
+Route::controller(\App\Http\Controllers\EventController::class)
+    ->middleware('auth')
+    ->prefix('event')
+    ->group(function () {
+        Route::get('create', 'showCreate')->name('event.create');
+        Route::get('{event}', 'show')->name('event.show');
+
+        Route::post('create', 'create');
+    });
