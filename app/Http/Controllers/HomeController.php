@@ -11,9 +11,14 @@ class HomeController extends Controller
     {
         if (auth()->user()->role === Role::Member) {
             return 'member';
-        } else {
-            return 'admin';
         }
+
+        return redirect()->route('home.admin');
+    }
+
+    public function admin()
+    {
+        return view('admin');
     }
 
     public function logout()

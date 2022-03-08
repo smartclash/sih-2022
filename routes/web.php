@@ -32,4 +32,5 @@ Route::controller(\App\Http\Controllers\HomeController::class)
     ->group(function () {
         Route::get('home', 'home')->name('home');
         Route::get('logout', 'logout')->name('logout');
+        Route::get('admin', 'admin')->name('home.admin');
     });
