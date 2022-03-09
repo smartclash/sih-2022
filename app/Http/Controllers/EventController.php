@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function view(Event $event)
     {
-        return $event;
+        return view('event.view')->with('event', $event);
     }
 
     public function showCreate()
