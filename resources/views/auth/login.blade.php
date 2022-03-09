@@ -10,6 +10,15 @@
                         <div class="box">
                             <form action="{{ route('auth.login') }}" method="post">
                                 @csrf
+
+                                @if(session('error'))
+                                    <p class="help is-danger pb-5 has-text-centered">{{ session('error') }}</p>
+                                @endif
+
+                                @if(session('success'))
+                                    <p class="help is-success pb-5 has-text-centered">{{ session('success') }}</p>
+                                @endif
+
                                 <div class="field">
                                     <label for="email" class="label">Email</label>
                                     <div class="control">
@@ -21,18 +30,17 @@
                                                 name="email">
                                     </div>
                                     @error('email')
-                                    <p class="help is-danger">{{ $message }}</p>
+                                        <p class="help is-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+
                                 <div class="field">
                                     <label for="password" class="label">Password</label>
                                     <div class="control">
-                                        <input type="password" class="input @error('password') is-danger @enderror" id="password" name="password" required>
+                                        <input type="password" class="input" id="password" name="password" required>
                                     </div>
-                                    @error('password')
-                                    <p class="help is-danger">{{ $message }}</p>
-                                    @enderror
                                 </div>
+
                                 <div class="field">
                                     <div class="control">
                                         <input type="submit" class="button is-dark is-fullwidth" value="Log In">
